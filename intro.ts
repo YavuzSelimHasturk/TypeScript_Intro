@@ -38,7 +38,18 @@ enum Renk {Kirmizi=1,Siyah,Mavi}    // enum class mantigi ile calisiyor. Bu yuzd
 let renk:Renk= Renk.Kirmizi         // Kirmizi ya atama yapip 1 de diyebiliyoruz. Proje devaminda olasi bir ren degisiminde 
                                     // enum ile kolayca degistiriyoruz
 
-                                    
+let deger:any ="Ankara"         // gelecek olan veri tipini bilmmiyorsak kullaniriz. 
+deger=2
+deger=true
+deger={}                                    
+
+//void genellikle fonksiyonlarda kullanilir. Fonksiyonda bisey dondurmek istemedigimizde kullaniriz
+let deger2:void = undefined
+
+function selamVer2():void{
+    console.log("Merhaba")
+ //   return 5;  // void deyince return uyari verdi. Bisey dondurmeyecegiz. Sadece bi islemi yapmasini ister, bir emir verirsek void kullaniriz
+}
 
 
 
