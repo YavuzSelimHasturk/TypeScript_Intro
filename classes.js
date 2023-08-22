@@ -24,12 +24,24 @@ var Ev = /** @class */ (function () {
     };
     return Ev;
 }());
+// erisim bildirgecleri default olarak public tir. private yazarsak sadece tanimlandigi classin icerisinden erisebiliriz
+// protected da private ile ayni, ayrica inherit edilen class ta da kullanilabilir
 var ev = new Ev(3, 5, 8);
 ev.yemekYe();
 // inheritence 
 var Kisi = /** @class */ (function () {
     function Kisi() {
     }
+    Object.defineProperty(Kisi.prototype, "isim", {
+        get: function () {
+            return "Sayin : " + this._isim;
+        },
+        set: function (ad) {
+            this._isim = ad;
+        },
+        enumerable: false,
+        configurable: true
+    });
     Kisi.prototype.kaydet = function () {
         console.log("Kisi kaydedildi");
     };
@@ -56,6 +68,8 @@ var Personel = /** @class */ (function (_super) {
     return Personel;
 }(Kisi));
 var musteri = new Musteri();
+musteri.isim = "Selim";
+console.log(musteri.isim);
 musteri.kaydet();
 musteri.satisYap();
 var personel = new Personel();

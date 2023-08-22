@@ -12,6 +12,8 @@ class Ev{
     }
     
 }
+// erisim bildirgecleri default olarak public tir. private yazarsak sadece tanimlandigi classin icerisinden erisebiliriz
+// protected da private ile ayni, ayrica inherit edilen class ta da kullanilabilir
 
 let ev = new Ev(3,5,8)
 ev.yemekYe();
@@ -19,6 +21,16 @@ ev.yemekYe();
 
 // inheritence 
 class Kisi{
+    private _isim:string
+    // getter ve setter ile encapsulation da yapabilriz
+    get isim():string{
+        return "Sayin : " + this._isim;
+    }
+
+    set isim(ad:string){
+        this._isim=ad
+    }
+
     kaydet(){
         console.log("Kisi kaydedildi");
     }
@@ -37,6 +49,8 @@ class Personel extends Kisi{
 }
 
 let musteri =new Musteri()
+musteri.isim="Selim"
+console.log(musteri.isim)
 musteri.kaydet()
 musteri.satisYap()
 
